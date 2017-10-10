@@ -34,6 +34,8 @@ namespace Bundick_2017
 */
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'classic7_bundickDataSet.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.classic7_bundickDataSet.Employees);
             // TODO: This line of code loads data into the 'classic7_bundickDataSet.Job_Sheet' table. You can move, or remove it, as needed.
             this.job_SheetTableAdapter.Fill(this.classic7_bundickDataSet.Job_Sheet);
             this.job_SheetBindingSource.MoveLast();

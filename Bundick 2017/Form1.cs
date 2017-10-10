@@ -24,7 +24,6 @@ namespace Bundick_2017
             this.Validate();
             this.employeesBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.classic7_bundickDataSet);
-            //MessageBox.Show("Employee table saved.", "Bundick Well and Pump");
             toolStripStatusLabel1.Text = "Employee table saved.";
 
             timer.Interval = 1000;
