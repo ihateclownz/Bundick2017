@@ -601,6 +601,10 @@ namespace Bundick_2017 {
             
             private global::System.Data.DataColumn columnProblem;
             
+            private global::System.Data.DataColumn columnServiceman;
+            
+            private global::System.Data.DataColumn columnHelper;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Job_SheetDataTable() {
@@ -748,6 +752,22 @@ namespace Bundick_2017 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ServicemanColumn {
+                get {
+                    return this.columnServiceman;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HelperColumn {
+                get {
+                    return this.columnHelper;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -783,7 +803,7 @@ namespace Bundick_2017 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Job_SheetRow AddJob_SheetRow(string Name, string Address, string Job_Location, string City, int Zip, string Phone, int TaxID, int Howmanyhomes, System.DateTime ArrivalTime, System.DateTime DepartureTime, System.DateTime Callindate, System.DateTime CompletionDate, string Problem) {
+            public Job_SheetRow AddJob_SheetRow(string Name, string Address, string Job_Location, string City, int Zip, string Phone, int TaxID, int Howmanyhomes, System.DateTime ArrivalTime, System.DateTime DepartureTime, System.DateTime Callindate, System.DateTime CompletionDate, string Problem, string Serviceman, string Helper) {
                 Job_SheetRow rowJob_SheetRow = ((Job_SheetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -799,7 +819,9 @@ namespace Bundick_2017 {
                         DepartureTime,
                         Callindate,
                         CompletionDate,
-                        Problem};
+                        Problem,
+                        Serviceman,
+                        Helper};
                 rowJob_SheetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowJob_SheetRow);
                 return rowJob_SheetRow;
@@ -843,6 +865,8 @@ namespace Bundick_2017 {
                 this.columnCallindate = base.Columns["Callindate"];
                 this.columnCompletionDate = base.Columns["CompletionDate"];
                 this.columnProblem = base.Columns["Problem"];
+                this.columnServiceman = base.Columns["Serviceman"];
+                this.columnHelper = base.Columns["Helper"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -876,6 +900,10 @@ namespace Bundick_2017 {
                 base.Columns.Add(this.columnCompletionDate);
                 this.columnProblem = new global::System.Data.DataColumn("Problem", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProblem);
+                this.columnServiceman = new global::System.Data.DataColumn("Serviceman", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnServiceman);
+                this.columnHelper = new global::System.Data.DataColumn("Helper", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHelper);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnName.MaxLength = 100;
@@ -888,6 +916,8 @@ namespace Bundick_2017 {
                 this.columnID.Unique = true;
                 this.columnPhone.MaxLength = 15;
                 this.columnProblem.MaxLength = 21845;
+                this.columnServiceman.MaxLength = 21845;
+                this.columnHelper.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1275,6 +1305,38 @@ namespace Bundick_2017 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Serviceman {
+                get {
+                    try {
+                        return ((string)(this[this.tableJob_Sheet.ServicemanColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Serviceman\' in table \'Job Sheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJob_Sheet.ServicemanColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Helper {
+                get {
+                    try {
+                        return ((string)(this[this.tableJob_Sheet.HelperColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Helper\' in table \'Job Sheet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJob_Sheet.HelperColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableJob_Sheet.NameColumn);
             }
@@ -1427,6 +1489,30 @@ namespace Bundick_2017 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProblemNull() {
                 this[this.tableJob_Sheet.ProblemColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsServicemanNull() {
+                return this.IsNull(this.tableJob_Sheet.ServicemanColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetServicemanNull() {
+                this[this.tableJob_Sheet.ServicemanColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHelperNull() {
+                return this.IsNull(this.tableJob_Sheet.HelperColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHelperNull() {
+                this[this.tableJob_Sheet.HelperColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1970,10 +2056,12 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Callindate", "Callindate");
             tableMapping.ColumnMappings.Add("CompletionDate", "CompletionDate");
             tableMapping.ColumnMappings.Add("Problem", "Problem");
+            tableMapping.ColumnMappings.Add("Serviceman", "Serviceman");
+            tableMapping.ColumnMappings.Add("Helper", "Helper");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Job Sheet` WHERE (((@p1 = 1 AND `Name` IS NULL) OR (`Name` = @p2)) AND ((@p3 = 1 AND `Address` IS NULL) OR (`Address` = @p4)) AND ((@p5 = 1 AND `Job Location` IS NULL) OR (`Job Location` = @p6)) AND (`City` = @p7) AND (`ID` = @p8) AND ((@p9 = 1 AND `Zip` IS NULL) OR (`Zip` = @p10)) AND (`Phone` = @p11) AND ((@p12 = 1 AND `ArrivalTime` IS NULL) OR (`ArrivalTime` = @p13)) AND ((@p14 = 1 AND `Callindate` IS NULL) OR (`Callindate` = @p15)) AND ((@p16 = 1 AND `CompletionDate` IS NULL) OR (`CompletionDate` = @p17)) AND ((@p18 = 1 AND `DepartureTime` IS NULL) OR (`DepartureTime` = @p19)) AND ((@p20 = 1 AND `Howmanyhomes` IS NULL) OR (`Howmanyhomes` = @p21)) AND ((@p22 = 1 AND `TaxID` IS NULL) OR (`TaxID` = @p23)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Job Sheet` WHERE (((@p1 = 1 AND `Name` IS NULL) OR (`Name` = @p2)) AND ((@p3 = 1 AND `Address` IS NULL) OR (`Address` = @p4)) AND ((@p5 = 1 AND `Job Location` IS NULL) OR (`Job Location` = @p6)) AND ((@p7 = 1 AND `City` IS NULL) OR (`City` = @p8)) AND (`ID` = @p9) AND ((@p10 = 1 AND `Zip` IS NULL) OR (`Zip` = @p11)) AND ((@p12 = 1 AND `Phone` IS NULL) OR (`Phone` = @p13)) AND ((@p14 = 1 AND `ArrivalTime` IS NULL) OR (`ArrivalTime` = @p15)) AND ((@p16 = 1 AND `Callindate` IS NULL) OR (`Callindate` = @p17)) AND ((@p18 = 1 AND `CompletionDate` IS NULL) OR (`CompletionDate` = @p19)) AND ((@p20 = 1 AND `DepartureTime` IS NULL) OR (`DepartureTime` = @p21)) AND ((@p22 = 1 AND `Howmanyhomes` IS NULL) OR (`Howmanyhomes` = @p23)) AND ((@p24 = 1 AND `TaxID` IS NULL) OR (`TaxID` = @p25)) AND ((@p26 = 1 AND `Helper` IS NULL) OR (`Helper` = @p27)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -2028,6 +2116,15 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "City";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -2035,21 +2132,12 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Zip";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p10";
@@ -2058,13 +2146,14 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Zip";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Phone";
+            param.SourceColumn = "Zip";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2072,16 +2161,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ArrivalTime";
+            param.SourceColumn = "Phone";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p13";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "ArrivalTime";
+            param.SourceColumn = "Phone";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2089,16 +2178,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Callindate";
+            param.SourceColumn = "ArrivalTime";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p15";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "Callindate";
+            param.SourceColumn = "ArrivalTime";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2106,16 +2195,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "CompletionDate";
+            param.SourceColumn = "Callindate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p17";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "CompletionDate";
+            param.SourceColumn = "Callindate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2123,16 +2212,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "DepartureTime";
+            param.SourceColumn = "CompletionDate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p19";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "DepartureTime";
+            param.SourceColumn = "CompletionDate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2140,16 +2229,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Howmanyhomes";
+            param.SourceColumn = "DepartureTime";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p21";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "Howmanyhomes";
+            param.SourceColumn = "DepartureTime";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2157,7 +2246,7 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "TaxID";
+            param.SourceColumn = "Howmanyhomes";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -2166,12 +2255,46 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
+            param.SourceColumn = "Howmanyhomes";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p24";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
             param.SourceColumn = "TaxID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p25";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TaxID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p26";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Helper";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p27";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Helper";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Job Sheet` (`Name`, `Address`, `Job Location`, `City`, `ID`, `Zip`, `Phone`, `ArrivalTime`, `Callindate`, `CompletionDate`, `DepartureTime`, `Howmanyhomes`, `Problem`, `TaxID`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Job Sheet` (`Name`, `Address`, `Job Location`, `City`, `ID`, `Zip`, `Phone`, `ArrivalTime`, `Callindate`, `CompletionDate`, `DepartureTime`, `Howmanyhomes`, `Problem`, `TaxID`, `Serviceman`, `Helper`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -2224,29 +2347,29 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p8";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "ArrivalTime";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p9";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "Callindate";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p10";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "CompletionDate";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "DepartureTime";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -2270,9 +2393,22 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "TaxID";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p15";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "Serviceman";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p16";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Helper";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Job Sheet` SET `Name` = @p1, `Address` = @p2, `Job Location` = @p3, `City` = @p4, `ID` = @p5, `Zip` = @p6, `Phone` = @p7, `ArrivalTime` = @p8, `Callindate` = @p9, `CompletionDate` = @p10, `DepartureTime` = @p11, `Howmanyhomes` = @p12, `Problem` = @p13, `TaxID` = @p14 WHERE (((@p15 = 1 AND `Name` IS NULL) OR (`Name` = @p16)) AND ((@p17 = 1 AND `Address` IS NULL) OR (`Address` = @p18)) AND ((@p19 = 1 AND `Job Location` IS NULL) OR (`Job Location` = @p20)) AND (`City` = @p21) AND (`ID` = @p22) AND ((@p23 = 1 AND `Zip` IS NULL) OR (`Zip` = @p24)) AND (`Phone` = @p25) AND ((@p26 = 1 AND `ArrivalTime` IS NULL) OR (`ArrivalTime` = @p27)) AND ((@p28 = 1 AND `Callindate` IS NULL) OR (`Callindate` = @p29)) AND ((@p30 = 1 AND `CompletionDate` IS NULL) OR (`CompletionDate` = @p31)) AND ((@p32 = 1 AND `DepartureTime` IS NULL) OR (`DepartureTime` = @p33)) AND ((@p34 = 1 AND `Howmanyhomes` IS NULL) OR (`Howmanyhomes` = @p35)) AND ((@p36 = 1 AND `TaxID` IS NULL) OR (`TaxID` = @p37)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Job Sheet` SET `Name` = @p1, `Address` = @p2, `Job Location` = @p3, `City` = @p4, `ID` = @p5, `Zip` = @p6, `Phone` = @p7, `ArrivalTime` = @p8, `Callindate` = @p9, `CompletionDate` = @p10, `DepartureTime` = @p11, `Howmanyhomes` = @p12, `Problem` = @p13, `TaxID` = @p14, `Serviceman` = @p15, `Helper` = @p16 WHERE (((@p17 = 1 AND `Name` IS NULL) OR (`Name` = @p18)) AND ((@p19 = 1 AND `Address` IS NULL) OR (`Address` = @p20)) AND ((@p21 = 1 AND `Job Location` IS NULL) OR (`Job Location` = @p22)) AND ((@p23 = 1 AND `City` IS NULL) OR (`City` = @p24)) AND (`ID` = @p25) AND ((@p26 = 1 AND `Zip` IS NULL) OR (`Zip` = @p27)) AND ((@p28 = 1 AND `Phone` IS NULL) OR (`Phone` = @p29)) AND ((@p30 = 1 AND `ArrivalTime` IS NULL) OR (`ArrivalTime` = @p31)) AND ((@p32 = 1 AND `Callindate` IS NULL) OR (`Callindate` = @p33)) AND ((@p34 = 1 AND `CompletionDate` IS NULL) OR (`CompletionDate` = @p35)) AND ((@p36 = 1 AND `DepartureTime` IS NULL) OR (`DepartureTime` = @p37)) AND ((@p38 = 1 AND `Howmanyhomes` IS NULL) OR (`Howmanyhomes` = @p39)) AND ((@p40 = 1 AND `TaxID` IS NULL) OR (`TaxID` = @p41)) AND ((@p42 = 1 AND `Helper` IS NULL) OR (`Helper` = @p43)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -2325,29 +2461,29 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p8";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "ArrivalTime";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p9";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "Callindate";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p10";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "CompletionDate";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "DepartureTime";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -2373,27 +2509,23 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p15";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
+            param.SourceColumn = "Serviceman";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumn = "Helper";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Address";
+            param.SourceColumn = "Name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -2402,7 +2534,7 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Address";
+            param.SourceColumn = "Name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2410,7 +2542,7 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Job Location";
+            param.SourceColumn = "Address";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -2419,23 +2551,24 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Job Location";
+            param.SourceColumn = "Address";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p21";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "City";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ID";
+            param.SourceColumn = "Job Location";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p22";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Job Location";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2443,24 +2576,24 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Zip";
+            param.SourceColumn = "City";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p24";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Zip";
+            param.SourceColumn = "City";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p25";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Phone";
+            param.SourceColumn = "ID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2468,16 +2601,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ArrivalTime";
+            param.SourceColumn = "Zip";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p27";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ArrivalTime";
+            param.SourceColumn = "Zip";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2485,16 +2618,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Callindate";
+            param.SourceColumn = "Phone";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p29";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Callindate";
+            param.SourceColumn = "Phone";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2502,16 +2635,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "CompletionDate";
+            param.SourceColumn = "ArrivalTime";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p31";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "CompletionDate";
+            param.SourceColumn = "ArrivalTime";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2519,16 +2652,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "DepartureTime";
+            param.SourceColumn = "Callindate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p33";
-            param.DbType = global::System.Data.DbType.Time;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Time;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "DepartureTime";
+            param.SourceColumn = "Callindate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2536,16 +2669,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Howmanyhomes";
+            param.SourceColumn = "CompletionDate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p35";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
-            param.SourceColumn = "Howmanyhomes";
+            param.SourceColumn = "CompletionDate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -2553,16 +2686,67 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "TaxID";
+            param.SourceColumn = "DepartureTime";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p37";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "DepartureTime";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p38";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Howmanyhomes";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p39";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Howmanyhomes";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p40";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "TaxID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p41";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TaxID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p42";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Helper";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p43";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Helper";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -2581,8 +2765,8 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Name, Address, `Job Location`, City, ID, Zip, Phone, ArrivalTime, Callinda" +
-                "te, CompletionDate, DepartureTime, Howmanyhomes, Problem, TaxID FROM `Job Sheet`" +
-                "";
+                "te, CompletionDate, DepartureTime, Howmanyhomes, Problem, TaxID, Serviceman, Hel" +
+                "per FROM `Job Sheet`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2643,7 +2827,7 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string p2, string p4, string p6, string p7, int p8, global::System.Nullable<int> p10, string p11, global::System.Nullable<global::System.DateTime> p13, global::System.Nullable<global::System.DateTime> p15, global::System.Nullable<global::System.DateTime> p17, global::System.Nullable<global::System.DateTime> p19, global::System.Nullable<int> p21, global::System.Nullable<int> p23) {
+        public virtual int Delete(string p2, string p4, string p6, string p8, int p9, global::System.Nullable<int> p11, string p13, global::System.Nullable<global::System.DateTime> p15, global::System.Nullable<global::System.DateTime> p17, global::System.Nullable<global::System.DateTime> p19, global::System.Nullable<global::System.DateTime> p21, global::System.Nullable<int> p23, global::System.Nullable<int> p25, string p27) {
             if ((p2 == null)) {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -2668,34 +2852,30 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(p6));
             }
-            if ((p7 == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((p8 == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(p7));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(p8));
             }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(p8));
-            if ((p10.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(p10.Value));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(p9));
+            if ((p11.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(p11.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((p11 == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(p11));
-            }
-            if ((p13.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(p13.Value));
-            }
-            else {
+            if ((p13 == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(p13));
             }
             if ((p15.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
@@ -2723,7 +2903,7 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             }
             if ((p21.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(p21.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(p21.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
@@ -2736,6 +2916,22 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((p25.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(p25.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((p27 == null)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(p27));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2757,7 +2953,23 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, string p4, int p5, global::System.Nullable<int> p6, string p7, global::System.Nullable<global::System.DateTime> p8, global::System.Nullable<global::System.DateTime> p9, global::System.Nullable<global::System.DateTime> p10, global::System.Nullable<global::System.DateTime> p11, global::System.Nullable<int> p12, string p13, global::System.Nullable<int> p14) {
+        public virtual int Insert(
+                    string p1, 
+                    string p2, 
+                    string p3, 
+                    string p4, 
+                    int p5, 
+                    global::System.Nullable<int> p6, 
+                    string p7, 
+                    global::System.Nullable<global::System.DateTime> p8, 
+                    global::System.Nullable<global::System.DateTime> p9, 
+                    global::System.Nullable<global::System.DateTime> p10, 
+                    global::System.Nullable<global::System.DateTime> p11, 
+                    global::System.Nullable<int> p12, 
+                    string p13, 
+                    global::System.Nullable<int> p14, 
+                    string p15, 
+                    string p16) {
             if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2837,6 +3049,18 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
+            if ((p15 == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(p15));
+            }
+            if ((p16 == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(p16));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2872,19 +3096,22 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
                     global::System.Nullable<int> p12, 
                     string p13, 
                     global::System.Nullable<int> p14, 
+                    string p15, 
                     string p16, 
                     string p18, 
                     string p20, 
-                    string p21, 
-                    int p22, 
-                    global::System.Nullable<int> p24, 
-                    string p25, 
-                    global::System.Nullable<global::System.DateTime> p27, 
-                    global::System.Nullable<global::System.DateTime> p29, 
+                    string p22, 
+                    string p24, 
+                    int p25, 
+                    global::System.Nullable<int> p27, 
+                    string p29, 
                     global::System.Nullable<global::System.DateTime> p31, 
                     global::System.Nullable<global::System.DateTime> p33, 
-                    global::System.Nullable<int> p35, 
-                    global::System.Nullable<int> p37) {
+                    global::System.Nullable<global::System.DateTime> p35, 
+                    global::System.Nullable<global::System.DateTime> p37, 
+                    global::System.Nullable<int> p39, 
+                    global::System.Nullable<int> p41, 
+                    string p43) {
             if ((p1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2964,12 +3191,16 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
+            if ((p15 == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(p15));
+            }
             if ((p16 == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
             }
             if ((p18 == null)) {
@@ -2988,42 +3219,38 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(p20));
             }
-            if ((p21 == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            if ((p22 == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(p21));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(p22));
             }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(p22));
-            if ((p24.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(p24.Value));
-            }
-            else {
+            if ((p24 == null)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((p25 == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(p25));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(p24));
             }
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(p25));
             if ((p27.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(p27.Value));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(p27.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            if ((p29.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(p29.Value));
-            }
-            else {
+            if ((p29 == null)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(p29));
             }
             if ((p31.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
@@ -3043,7 +3270,7 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             }
             if ((p35.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(p35.Value));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((System.DateTime)(p35.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
@@ -3051,11 +3278,35 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
             }
             if ((p37.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(p37.Value));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((System.DateTime)(p37.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((p39.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(p39.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            if ((p41.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(p41.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            if ((p43 == null)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(p43));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3091,20 +3342,23 @@ namespace Bundick_2017.classic7_bundickDataSetTableAdapters {
                     global::System.Nullable<int> p12, 
                     string p13, 
                     global::System.Nullable<int> p14, 
+                    string p15, 
                     string p16, 
                     string p18, 
                     string p20, 
-                    string p21, 
-                    int p22, 
-                    global::System.Nullable<int> p24, 
-                    string p25, 
-                    global::System.Nullable<global::System.DateTime> p27, 
-                    global::System.Nullable<global::System.DateTime> p29, 
+                    string p22, 
+                    string p24, 
+                    int p25, 
+                    global::System.Nullable<int> p27, 
+                    string p29, 
                     global::System.Nullable<global::System.DateTime> p31, 
                     global::System.Nullable<global::System.DateTime> p33, 
-                    global::System.Nullable<int> p35, 
-                    global::System.Nullable<int> p37) {
-            return this.Update(p1, p2, p3, p4, p22, p6, p7, p8, p9, p10, p11, p12, p13, p14, p16, p18, p20, p21, p22, p24, p25, p27, p29, p31, p33, p35, p37);
+                    global::System.Nullable<global::System.DateTime> p35, 
+                    global::System.Nullable<global::System.DateTime> p37, 
+                    global::System.Nullable<int> p39, 
+                    global::System.Nullable<int> p41, 
+                    string p43) {
+            return this.Update(p1, p2, p3, p4, p25, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p18, p20, p22, p24, p25, p27, p29, p31, p33, p35, p37, p39, p41, p43);
         }
     }
     
