@@ -42,10 +42,11 @@
             System.Windows.Forms.Label completionDateLabel;
             System.Windows.Forms.Label howmanyhomesLabel;
             System.Windows.Forms.Label problemLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             System.Windows.Forms.Label servicemanLabel;
             System.Windows.Forms.Label helperLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.job_SheetBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.classic7_bundickDataSet = new Bundick_2017.classic7_bundickDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
@@ -81,14 +82,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.job_SheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.classic7_bundickDataSet = new Bundick_2017.classic7_bundickDataSet();
-            this.job_SheetTableAdapter = new Bundick_2017.classic7_bundickDataSetTableAdapters.Job_SheetTableAdapter();
-            this.tableAdapterManager = new Bundick_2017.classic7_bundickDataSetTableAdapters.TableAdapterManager();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeesTableAdapter = new Bundick_2017.classic7_bundickDataSetTableAdapters.EmployeesTableAdapter();
             this.servicemanComboBox = new System.Windows.Forms.ComboBox();
             this.helperComboBox = new System.Windows.Forms.ComboBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.job_SheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableAdapterManager = new Bundick_2017.classic7_bundickDataSetTableAdapters.TableAdapterManager();
+            this.employeesTableAdapter = new Bundick_2017.classic7_bundickDataSetTableAdapters.EmployeesTableAdapter();
+            this.jobSheetTableAdapter1 = new Bundick_2017.classic7_bundickDataSetTableAdapters.Job_SheetTableAdapter();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
             job_LocationLabel = new System.Windows.Forms.Label();
@@ -106,11 +109,13 @@
             helperLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.job_SheetBindingNavigator)).BeginInit();
             this.job_SheetBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classic7_bundickDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.job_SheetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classic7_bundickDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,6 +175,7 @@
             // 
             // taxIDLabel
             // 
+            taxIDLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             taxIDLabel.AutoSize = true;
             taxIDLabel.Location = new System.Drawing.Point(304, 50);
             taxIDLabel.Name = "taxIDLabel";
@@ -179,6 +185,7 @@
             // 
             // arrivalTimeLabel
             // 
+            arrivalTimeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             arrivalTimeLabel.AutoSize = true;
             arrivalTimeLabel.Location = new System.Drawing.Point(337, 168);
             arrivalTimeLabel.Name = "arrivalTimeLabel";
@@ -188,6 +195,7 @@
             // 
             // departureTimeLabel
             // 
+            departureTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             departureTimeLabel.AutoSize = true;
             departureTimeLabel.Location = new System.Drawing.Point(523, 165);
             departureTimeLabel.Name = "departureTimeLabel";
@@ -197,6 +205,7 @@
             // 
             // callindateLabel
             // 
+            callindateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             callindateLabel.AutoSize = true;
             callindateLabel.Location = new System.Drawing.Point(550, 50);
             callindateLabel.Name = "callindateLabel";
@@ -206,6 +215,7 @@
             // 
             // completionDateLabel
             // 
+            completionDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             completionDateLabel.AutoSize = true;
             completionDateLabel.Location = new System.Drawing.Point(518, 84);
             completionDateLabel.Name = "completionDateLabel";
@@ -215,6 +225,7 @@
             // 
             // howmanyhomesLabel
             // 
+            howmanyhomesLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             howmanyhomesLabel.AutoSize = true;
             howmanyhomesLabel.Location = new System.Drawing.Point(304, 84);
             howmanyhomesLabel.Name = "howmanyhomesLabel";
@@ -224,12 +235,31 @@
             // 
             // problemLabel
             // 
+            problemLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             problemLabel.AutoSize = true;
             problemLabel.Location = new System.Drawing.Point(748, 50);
             problemLabel.Name = "problemLabel";
             problemLabel.Size = new System.Drawing.Size(48, 13);
             problemLabel.TabIndex = 27;
             problemLabel.Text = "Problem:";
+            // 
+            // servicemanLabel
+            // 
+            servicemanLabel.AutoSize = true;
+            servicemanLabel.Location = new System.Drawing.Point(153, 636);
+            servicemanLabel.Name = "servicemanLabel";
+            servicemanLabel.Size = new System.Drawing.Size(66, 13);
+            servicemanLabel.TabIndex = 30;
+            servicemanLabel.Text = "Serviceman:";
+            // 
+            // helperLabel
+            // 
+            helperLabel.AutoSize = true;
+            helperLabel.Location = new System.Drawing.Point(474, 636);
+            helperLabel.Name = "helperLabel";
+            helperLabel.Size = new System.Drawing.Size(41, 13);
+            helperLabel.TabIndex = 32;
+            helperLabel.Text = "Helper:";
             // 
             // job_SheetBindingNavigator
             // 
@@ -255,6 +285,11 @@
             this.job_SheetBindingNavigator.TabIndex = 0;
             this.job_SheetBindingNavigator.Text = "bindingNavigator1";
             // 
+            // classic7_bundickDataSet
+            // 
+            this.classic7_bundickDataSet.DataSetName = "classic7_bundickDataSet";
+            this.classic7_bundickDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
@@ -272,6 +307,7 @@
             this.bindingNavigatorPositionItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.ReadOnly = true;
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -327,6 +363,7 @@
             // 
             // taxIDTextBox
             // 
+            this.taxIDTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.taxIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.job_SheetBindingSource, "TaxID", true));
             this.taxIDTextBox.Location = new System.Drawing.Point(352, 47);
             this.taxIDTextBox.Name = "taxIDTextBox";
@@ -361,7 +398,7 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -369,14 +406,15 @@
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadToolStripMenuItem.Text = "&Open";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -384,7 +422,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Q)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitToolStripMenuItem.Text = "&Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -488,10 +526,11 @@
             // 
             // arrivalTimeDateTimePicker
             // 
+            this.arrivalTimeDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.arrivalTimeDateTimePicker.CustomFormat = "hh:mm tt";
             this.arrivalTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.job_SheetBindingSource, "ArrivalTime", true));
             this.arrivalTimeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.arrivalTimeDateTimePicker.Location = new System.Drawing.Point(408, 165);
+            this.arrivalTimeDateTimePicker.Location = new System.Drawing.Point(408, 167);
             this.arrivalTimeDateTimePicker.Name = "arrivalTimeDateTimePicker";
             this.arrivalTimeDateTimePicker.ShowUpDown = true;
             this.arrivalTimeDateTimePicker.Size = new System.Drawing.Size(90, 20);
@@ -510,6 +549,7 @@
             // 
             // callindateDateTimePicker
             // 
+            this.callindateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.callindateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.job_SheetBindingSource, "Callindate", true));
             this.callindateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.callindateDateTimePicker.Location = new System.Drawing.Point(612, 47);
@@ -519,6 +559,7 @@
             // 
             // completionDateDateTimePicker
             // 
+            this.completionDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.completionDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.job_SheetBindingSource, "CompletionDate", true));
             this.completionDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.completionDateDateTimePicker.Location = new System.Drawing.Point(612, 81);
@@ -528,14 +569,16 @@
             // 
             // howmanyhomesTextBox
             // 
+            this.howmanyhomesTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.howmanyhomesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.job_SheetBindingSource, "Howmanyhomes", true));
-            this.howmanyhomesTextBox.Location = new System.Drawing.Point(457, 81);
+            this.howmanyhomesTextBox.Location = new System.Drawing.Point(457, 77);
             this.howmanyhomesTextBox.Name = "howmanyhomesTextBox";
             this.howmanyhomesTextBox.Size = new System.Drawing.Size(41, 20);
             this.howmanyhomesTextBox.TabIndex = 26;
             // 
             // problemRichTextBox
             // 
+            this.problemRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.problemRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.job_SheetBindingSource, "Problem", true));
             this.problemRichTextBox.Location = new System.Drawing.Point(802, 47);
             this.problemRichTextBox.Name = "problemRichTextBox";
@@ -573,45 +616,6 @@
             this.tabPage2.Text = "Well Hookup";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // job_SheetBindingSource
-            // 
-            this.job_SheetBindingSource.DataMember = "Job Sheet";
-            this.job_SheetBindingSource.DataSource = this.classic7_bundickDataSet;
-            // 
-            // classic7_bundickDataSet
-            // 
-            this.classic7_bundickDataSet.DataSetName = "classic7_bundickDataSet";
-            this.classic7_bundickDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // job_SheetTableAdapter
-            // 
-            this.job_SheetTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.EmployeesTableAdapter = null;
-            this.tableAdapterManager.Job_SheetTableAdapter = this.job_SheetTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Bundick_2017.classic7_bundickDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataMember = "Employees";
-            this.employeesBindingSource.DataSource = this.classic7_bundickDataSet;
-            // 
-            // employeesTableAdapter
-            // 
-            this.employeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // servicemanLabel
-            // 
-            servicemanLabel.AutoSize = true;
-            servicemanLabel.Location = new System.Drawing.Point(153, 636);
-            servicemanLabel.Name = "servicemanLabel";
-            servicemanLabel.Size = new System.Drawing.Size(66, 13);
-            servicemanLabel.TabIndex = 30;
-            servicemanLabel.Text = "Serviceman:";
-            // 
             // servicemanComboBox
             // 
             this.servicemanComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.job_SheetBindingSource, "Serviceman", true));
@@ -622,21 +626,11 @@
             this.servicemanComboBox.Name = "servicemanComboBox";
             this.servicemanComboBox.Size = new System.Drawing.Size(121, 21);
             this.servicemanComboBox.TabIndex = 31;
-            this.servicemanComboBox.ValueMember = "Name";
-            // 
-            // helperLabel
-            // 
-            helperLabel.AutoSize = true;
-            helperLabel.Location = new System.Drawing.Point(474, 636);
-            helperLabel.Name = "helperLabel";
-            helperLabel.Size = new System.Drawing.Size(41, 13);
-            helperLabel.TabIndex = 32;
-            helperLabel.Text = "Helper:";
             // 
             // helperComboBox
             // 
             this.helperComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.job_SheetBindingSource, "Helper", true));
-            this.helperComboBox.DataSource = this.employeesBindingSource;
+            this.helperComboBox.DataSource = this.bindingSource1;
             this.helperComboBox.DisplayMember = "Name";
             this.helperComboBox.FormattingEnabled = true;
             this.helperComboBox.Location = new System.Drawing.Point(521, 633);
@@ -645,11 +639,56 @@
             this.helperComboBox.TabIndex = 33;
             this.helperComboBox.ValueMember = "Name";
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = this.employeesBindingSource;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 664);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(999, 22);
+            this.statusStrip1.TabIndex = 34;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // job_SheetBindingSource
+            // 
+            this.job_SheetBindingSource.DataMember = "Job Sheet";
+            this.job_SheetBindingSource.DataSource = this.classic7_bundickDataSet;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this.classic7_bundickDataSet;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.EmployeesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Bundick_2017.classic7_bundickDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // jobSheetTableAdapter1
+            // 
+            this.jobSheetTableAdapter1.ClearBeforeFill = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 686);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(helperLabel);
             this.Controls.Add(this.helperComboBox);
             this.Controls.Add(servicemanLabel);
@@ -694,13 +733,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.job_SheetBindingNavigator)).EndInit();
             this.job_SheetBindingNavigator.ResumeLayout(false);
             this.job_SheetBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classic7_bundickDataSet)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.job_SheetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classic7_bundickDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -709,15 +751,12 @@
 
         #endregion
 
-        private classic7_bundickDataSet classic7_bundickDataSet;
-        private System.Windows.Forms.BindingSource job_SheetBindingSource;
-        private classic7_bundickDataSetTableAdapters.Job_SheetTableAdapter job_SheetTableAdapter;
-        private classic7_bundickDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator job_SheetBindingNavigator;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox addressTextBox;
+        public classic7_bundickDataSet classic7_bundickDataSet;
+        public classic7_bundickDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        public System.Windows.Forms.BindingNavigator job_SheetBindingNavigator;
+        public System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        public System.Windows.Forms.TextBox nameTextBox;
+        public System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TextBox job_LocationTextBox;
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.TextBox zipTextBox;
@@ -753,6 +792,12 @@
         private classic7_bundickDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
         private System.Windows.Forms.ComboBox servicemanComboBox;
         private System.Windows.Forms.ComboBox helperComboBox;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        public System.Windows.Forms.BindingSource job_SheetBindingSource;
+        public System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private classic7_bundickDataSetTableAdapters.Job_SheetTableAdapter jobSheetTableAdapter1;
         // private System.Windows.Forms.ToolStripContainer toolStripContainer1;
     }
 }

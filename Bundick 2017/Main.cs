@@ -12,6 +12,7 @@ namespace Bundick_2017
 {
     public partial class Main : Form
     {
+        public int formIndex;
         public Main()
         {
             InitializeComponent();
@@ -37,8 +38,11 @@ namespace Bundick_2017
             // TODO: This line of code loads data into the 'classic7_bundickDataSet.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this.classic7_bundickDataSet.Employees);
             // TODO: This line of code loads data into the 'classic7_bundickDataSet.Job_Sheet' table. You can move, or remove it, as needed.
-            this.job_SheetTableAdapter.Fill(this.classic7_bundickDataSet.Job_Sheet);
-            this.job_SheetBindingSource.MoveLast();
+            this.jobSheetTableAdapter1.Fill(this.classic7_bundickDataSet.Job_Sheet);
+            //this.job_SheetBindingSource.MoveLast();
+            this.job_SheetBindingSource.Position = 1;
+
+
         }
 
 
@@ -114,6 +118,21 @@ namespace Bundick_2017
                 this.job_SheetBindingSource.RemoveCurrent();
                 Save();
             }
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomerSearch customerSearch = new CustomerSearch();
+            customerSearch.LogicalParent = this;
+            customerSearch.Show();
+        }
+
+        public void updateFormData()
+        {
+            //           CustomerSearch customerSearch = new CustomerSearch();
+            Console.WriteLine(formIndex);
+            this.job_SheetBindingSource.Position = formIndex;
+            //MessageBox.Show(formIndex + " " + this.job_SheetBindingSource.Position.ToString());
         }
     }
 }
