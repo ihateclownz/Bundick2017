@@ -17,30 +17,13 @@ namespace Bundick_2017
         {
             InitializeComponent();
         }
-/*
-        private void job_SheetBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            if (nameTextBox.Text == "")
-            {
-                Console.WriteLine("Not Saved");
-                MessageBox.Show("Form not saved, please check that all required data is accurate.", "Not Saved!");
-            }
-            else
-            {
-                this.Validate();
-                this.job_SheetBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.classic7_bundickDataSet);
-            }
-        }
-*/
+
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'classic7_bundickDataSet.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this.classic7_bundickDataSet.Employees);
-            // TODO: This line of code loads data into the 'classic7_bundickDataSet.Job_Sheet' table. You can move, or remove it, as needed.
             this.jobSheetTableAdapter1.Fill(this.classic7_bundickDataSet.Job_Sheet);
-            //this.job_SheetBindingSource.MoveLast();
-            this.job_SheetBindingSource.Position = 1;
+
+            this.job_SheetBindingSource.MoveLast();
 
 
         }
@@ -48,7 +31,7 @@ namespace Bundick_2017
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("You are trying to quit...quitter");
+
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,12 +43,12 @@ namespace Bundick_2017
         {
             if (nameTextBox.Text == "")
             {
-                Console.WriteLine("Not Saved");
                 MessageBox.Show("Form not saved, please check that all required data is accurate.", "Not Saved!");
             }
             else
             {
                 Save();
+                toolStripStatusLabel1.Text = "Saved";
             }
         }
 
@@ -129,10 +112,12 @@ namespace Bundick_2017
 
         public void updateFormData()
         {
-            //           CustomerSearch customerSearch = new CustomerSearch();
-            Console.WriteLine(formIndex);
             this.job_SheetBindingSource.Position = formIndex;
-            //MessageBox.Show(formIndex + " " + this.job_SheetBindingSource.Position.ToString());
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not emplemented yet", "ERROR");
         }
     }
 }

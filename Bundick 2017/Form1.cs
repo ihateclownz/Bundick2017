@@ -19,8 +19,15 @@ namespace Bundick_2017
             toolStripStatusLabel1.Text = "";
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.employeesTableAdapter.Fill(this.classic7_bundickDataSet.Employees);
+
+        }
+
         private void employeesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+
             this.Validate();
             this.employeesBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.classic7_bundickDataSet);
@@ -32,17 +39,9 @@ namespace Bundick_2017
 
         }
 
-
         void timer_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = "";
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'classic7_bundickDataSet.Employees' table. You can move, or remove it, as needed.
-            this.employeesTableAdapter.Fill(this.classic7_bundickDataSet.Employees);
-
         }
     }
 }

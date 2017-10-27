@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +41,6 @@
             this.jobSheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classic7bundickDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classic7_bundickDataSet = new Bundick_2017.classic7_bundickDataSet();
-            this.job_SheetTableAdapter = new Bundick_2017.classic7_bundickDataSetTableAdapters.Job_SheetTableAdapter();
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.nameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.nameToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -52,6 +52,7 @@
             this.txtNameSearch = new System.Windows.Forms.TextBox();
             this.btnOpenJob = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.job_SheetTableAdapter = new Bundick_2017.classic7_bundickDataSetTableAdapters.Job_SheetTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobSheetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classic7bundickDataSetBindingSource)).BeginInit();
@@ -64,11 +65,14 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.nameDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn,
             this.jobLocationDataGridViewTextBoxColumn,
@@ -77,12 +81,25 @@
             this.callindateDataGridViewTextBoxColumn,
             this.completionDateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.jobSheetBindingSource;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(0, 80);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(651, 182);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -148,10 +165,6 @@
             this.classic7_bundickDataSet.DataSetName = "classic7_bundickDataSet";
             this.classic7_bundickDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // job_SheetTableAdapter
-            // 
-            this.job_SheetTableAdapter.ClearBeforeFill = true;
-            // 
             // fillByToolStrip
             // 
             this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -176,6 +189,7 @@
             this.nameToolStripTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.nameToolStripTextBox.Name = "nameToolStripTextBox";
             this.nameToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.nameToolStripTextBox.TextChanged += new System.EventHandler(this.nameToolStripTextBox_TextChanged);
             // 
             // fillByToolStripButton
             // 
@@ -207,6 +221,7 @@
             // 
             this.addressToolStripTextBox.Name = "addressToolStripTextBox";
             this.addressToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.addressToolStripTextBox.TextChanged += new System.EventHandler(this.addressToolStripTextBox_TextChanged);
             // 
             // fillBy1ToolStripButton
             // 
@@ -244,6 +259,10 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // job_SheetTableAdapter
+            // 
+            this.job_SheetTableAdapter.ClearBeforeFill = true;
             // 
             // CustomerSearch
             // 
@@ -289,6 +308,8 @@
         private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
         private System.Windows.Forms.TextBox txtNameSearch;
         private System.Windows.Forms.Button btnOpenJob;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jobLocationDataGridViewTextBoxColumn;
@@ -296,6 +317,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn taxIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn callindateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn completionDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnSearch;
     }
 }
