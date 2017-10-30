@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Bundick_2017
 {
@@ -15,8 +16,8 @@ namespace Bundick_2017
         
         public int index, searchfields= 0;
         public Main LogicalParent { get; set; }
-        classic7_bundickDataSet ds = new classic7_bundickDataSet();
-
+        //classic7_bundickDataSet ds = new classic7_bundickDataSet();
+    
         public CustomerSearch()
         {
           InitializeComponent();
@@ -26,36 +27,68 @@ namespace Bundick_2017
         {
 
             this.job_SheetTableAdapter.Fill(this.classic7_bundickDataSet.Job_Sheet);
+            //string ConString = "server=classicsiamese.com;user id=classic7_jisatsu;password=Mexic0123!;persistsecurityinfo=True;database=classic7_bundick";
+            //MySqlConnection connection = new MySqlConnection(ConString);
+            //connection.Open();
+
+            //    MySqlCommand cmd = connection.CreateCommand();
+            //    cmd.CommandText = "SELECT * FROM `Job Sheet`";
+            //    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+            //    DataSet ds = new DataSet();
+            //    adap.Fill(ds);
+
+            //    if(connection.State == ConnectionState.Open)
+            //    {
+            //        connection.Clone();
+            //    }
+
+
+            //int countyCount = ds.Tables[0].Rows.Count;
+            //Console.WriteLine(countyCount);
             AutoComplete();
 
         }
 
         private void AutoComplete()
         {
+            string ConString = "server=classicsiamese.com;user id=classic7_jisatsu;password=Mexic0123!;persistsecurityinfo=True;database=classic7_bundick";
+            MySqlConnection connection = new MySqlConnection(ConString);
+            connection.Open();
 
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT * FROM `Job Sheet`";
+            MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adap.Fill(ds);
+
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Clone();
+            }
+
+
+            int countyCount = ds.Tables[0].Rows.Count;
+            Console.WriteLine(countyCount);
             //TODO Get data from database
-            classic7_bundickDataSet ds = new classic7_bundickDataSet();
-            classic7_bundickDataSet.Job_SheetDataTable dt = new classic7_bundickDataSet.Job_SheetDataTable();
-            this.nameToolStripTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //classic7_bundickDataSet ds = new classic7_bundickDataSet();
+            //classic7_bundickDataSet.Job_SheetDataTable dt = new classic7_bundickDataSet.Job_SheetDataTable();
+            this.nameToolStripTextBox.AutoCompleteMode = AutoCompleteMode.Suggest;
             this.nameToolStripTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+            //data.Add(ds.Tables[1].Rows[0]["Name"].ToString());
 
-            for (int i = 0; i <= dt.Count; i++)
+
+            for (int i = 0; i < countyCount; i++)
             {
-                Console.WriteLine("in for loop");
-                //data.Add(ds.Tables[1].Rows[i]["Name"].ToString());
-                try
-                {
-                   // data.Add(ds.Tables[1].Rows[i]["Name"].ToString());
-                    data.Add(ds.Job_Sheet.Rows[0]["Name"].ToString());
-                }
-           
-                catch
-                {
-                    Console.WriteLine("well, this didnt work like i thought");
-                }
+                data.Add(ds.Tables[0].Rows[i]["Name"].ToString());
+                Console.WriteLine("Name: " + ds.Tables[0].Rows[i]["Name"].ToString());
             }
+            //foreach (DataRow row in ds.Tables[0].Rows)
+            //{
+            //    data.Add(row[0].ToString());
+            //}
+
 
             this.nameToolStripTextBox.AutoCompleteCustomSource = data;
 
